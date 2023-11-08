@@ -99,6 +99,7 @@ const EditProduct=()=>{
         )
 
 setNewProduct1(initProduct)
+setFlag(!flag)
 }
   const deleteProduct = (id) => {
     console.log(id);
