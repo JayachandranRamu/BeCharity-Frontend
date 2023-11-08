@@ -3,9 +3,13 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 const MainURL="https://tiny-puce-zebra-cuff.cyclic.app/"
+// const MainURL="http://localhost:8000"
 const UserApi = MainURL+"/users";
 const DonationApi=MainURL+"/donation";
 const PaymentURL=MainURL+"/payment";
+
+let token = Cookies.get("User-token");
+
 export const LoginRequest = (body) => {
   return axios.post(UserApi + "/login", body);
 };
@@ -15,7 +19,7 @@ export const RegisterRequest = (body) => {
 };
 
 export const LogoutRequest = () => {
-  let token = Cookies.get("User-token");
+
 
   return axios.get(
     UserApi + "/logout",
@@ -28,7 +32,7 @@ export const LogoutRequest = () => {
 };
 
 export const UserDataRequest = () => {
-  let token = Cookies.get("User-token");
+
   return axios.get(
     UserApi + "/user-data",
     {
@@ -47,6 +51,15 @@ console.log(params)
     );
   };
 
+//Volunteer Get Data
+export const DonationRequestVolunteer = () => {
+
+      return axios.get(
+        DonationApi+"/voulnteer",{ headers: {
+          Authorization: `Bearer ${token}`,
+        }}
+      );
+    };
 //All Uesr Data
 
 export const AllUserDataRequest=()=>{

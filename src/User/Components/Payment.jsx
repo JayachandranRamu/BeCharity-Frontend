@@ -70,8 +70,8 @@ const userData=useSelector((store)=>(store.AuthReducer))
     
     PaymentAddRequest(obj).then(res=>{
     toast({
-        title: 'Payment Successfully',
-        description: "You have brought our package.",
+        title: 'Payment Successfully!',
+        description: "Thank You For Donating Us.",
         status: 'success',
         position: 'top',
         duration: 3000,
@@ -100,9 +100,9 @@ Navigate("/");
       HandleSubmit(obj);
     }else{
       toast({
-        title: "Enter Donamtion Amount",
+        title: "Enter Donation Amount!",
         position: 'top',
-        description: "Join with us to help.",
+        description: "Join With Us To Help.",
         status: 'info',
         duration: 2000,
         isClosable: true,
@@ -131,9 +131,9 @@ Navigate("/");
       HandleSubmit(obj);
     }else{
       toast({
-        title: "Enter Donamtion Amount",
+        title: "Enter Donation Amount!",
         position: 'top',
-        description: "Join with us to help.",
+        description: "Join With Us To Help.",
         status: 'info',
         duration: 2000,
         isClosable: true,
@@ -163,9 +163,9 @@ Navigate("/");
       HandleSubmit(obj);
     }else{
       toast({
-        title: "Enter Donamtion Amount",
+        title: "Enter Donation Amount!",
         position: 'top',
-        description: "Join with us to help.",
+        description: "Join With Us To Help.",
         status: 'info',
         duration: 2000,
         isClosable: true,
@@ -177,13 +177,13 @@ Navigate("/");
 
   return (
     <>
-      <InputGroup m="auto" mt={5} mb={8} w="80%" border="1px solid black" borderRadius="none">
+      <InputGroup m="auto" mt={5} mb={8} w="80%"  >
         <InputLeftElement pointerEvents="none" color="black" fontSize="1.2em" children="$" />
         <Input
           type="number"
           onChange={(e) => setAmount(e.target.value)}
           value={amount}
-          borderRadius="none"
+     
           fontSize="20"
           textAlign="right"
           fontWeight="600"

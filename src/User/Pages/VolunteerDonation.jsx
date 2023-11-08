@@ -23,7 +23,7 @@ import axios from "axios";
 import BGImage from "../Assests/ngo2-sectionbg2.png"
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { AddDonationRequest, DeleteDonationRequest, DonationRequest, DonationSingleRequest, PatchDonationRequest } from "../Utilis/api";
+import { AddDonationRequest, DeleteDonationRequest,  DonationRequestVolunteer, DonationSingleRequest, PatchDonationRequest } from "../Utilis/api";
 import AdminProductCard from "../../Admin/Components/AdminPRoductCard";
 import Footer from "../Components/Footer";
 
@@ -111,15 +111,9 @@ setFlag(!flag)
 
   useEffect(()=>{
     
-    let a= {
-        params:{
  
-          organizer:datas.userData._id
-        }
-      }
-         
           console.log(datas.userData)
-DonationRequest(a).then(res=>{
+DonationRequestVolunteer().then(res=>{
  console.log(res.data)
     setData(res.data)})
   },[flag])

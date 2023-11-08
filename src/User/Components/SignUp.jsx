@@ -46,7 +46,7 @@ export const SignupModal = ({onOpens,LetClose}) => {
     toast({
       title: res.data.msg,
       position: 'top',
-      description: "You can login to our website",
+      description: "You Can Now Login To Our Website.",
       status: 'success',
       duration: 5000,
       isClosable: true,

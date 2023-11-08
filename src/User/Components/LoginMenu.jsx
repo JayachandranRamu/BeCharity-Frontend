@@ -35,7 +35,7 @@ import { LoginUser, LogoutUser, SingleUserData } from '../Redux/Auth/action';
 const LoginMenu = () => {
   const dispatch=useDispatch()
   const data=useSelector((store)=>(store.AuthReducer))
-  console.log(data.userData)
+
   const [SignOpen, setSignOpen] = useState(false);
 
   function SignClose() {
@@ -49,9 +49,10 @@ const LoginMenu = () => {
   const handleClick = () => setShow(!show)
 
   const { onOpen, onClose, isOpen } = useDisclosure()
-
-  const [username,setUsername]=useState("");
-  const [password,setPassword]=useState("");
+let init={email:"",password:""};
+  let [credentials,setCredentials]=useState(init)
+  // const [username,setUsername]=useState("");
+  // const [password,setPassword]=useState("");
 
 let Navigate=useNavigate()
 
@@ -76,30 +77,27 @@ onClose()
 
 e.preventDefault();
 
-let obj={
-  email:username,password
-}
-
+let obj=credentials;
+console.log(obj)
 if(obj.email && obj.password){
 dispatch(LoginUser(obj)).then((data)=>{
   if(data=="User successfully logined."){
     toast({
       position: 'top',
-      title: 'User Logined Succesfully',
-      description: "You can donate us now.",
+      title: 'User Logined Succesfully!',
+      description: "You Can Donate Us Now.",
       status: 'success',
       duration: 2000,
       isClosable: true,
     })
    
-    setPassword("");
-setUsername("");
+    setCredentials(init)
 onClose()
   }else{
     toast({
       title: data,
       position: 'top',
-      description: "Kindly check your credentials",
+      description: "Kindly Check Your Credentials.",
       status: 'error',
       duration: 2000,
       isClosable: true,
@@ -107,9 +105,9 @@ onClose()
   }  })
 }else{
   toast({
-    title: "Enter Your Credentials",
+    title: "Enter Your Credentials.",
     position: 'top',
-    description: "Don't keep it empty",
+    description: "Don't Keep It Empty!",
     status: 'error',
     duration: 2000,
     isClosable: true,
@@ -194,13 +192,14 @@ if(data.isAuth){
           <PopoverHeader border="none" fontWeight={"bold"}  fontFamily={"DM Serif Display"} letterSpacing={"1px"}
               fontSize="25">Login</PopoverHeader>
           <PopoverBody>
+            <form onSubmit={HandleSubmit}>
           <InputGroup>
     <InputLeftElement pointerEvents='none' alignItems={"center"} textAlign={"center"} fontSize={"22px"} justifyContent={"center"}>
      <MdEmail />
 
     </InputLeftElement>
-    <Input value={username}  variant="flushed"
-           borderBottom={"1px solid black"} type='email' onChange={(e)=>setUsername(e.target.value)} placeholder="User Email"  marginBottom={2}  />
+    <Input value={credentials.email}  variant="flushed" name="email"
+           borderBottom={"1px solid black"} type='email' required onChange={(e)=>setCredentials({...credentials,email:e.target.value})} placeholder="User Email"  marginBottom={2}  />
   </InputGroup>
         
   <InputGroup>
@@ -209,11 +208,12 @@ if(data.isAuth){
      <BiSolidLockAlt />
     </InputLeftElement>  <Input  variant="flushed"
            borderBottom={"1px solid black"}
-            value={password}
-            onChange={(e)=>setPassword(e.target.value)}
+            value={credentials.password}
+            onChange={(e)=>setCredentials({...credentials,password:e.target.value})}
             type={show ? 'text' : 'password'}
               placeholder="Password"
-
+              name="password"
+required
               marginBottom={2}
             />
             <InputRightElement>
@@ -228,16 +228,17 @@ if(data.isAuth){
               w="100%"
               fontWeight="400"
               bg="#79ab2f"
+              type='submit'
               _hover={{ bgColor: "#df8c09" }}
               letterSpacing={"1px"}
-              onClick={HandleSubmit}
+          
               borderRadius={"0"}
               m={"10px auto"}
               
             >
               LOGIN
             </Button>
-           
+            </form>
             <Box m={"5px auto"} textAlign={"center"} mb={"0"} alignItems={"center"} justifyContent={"center"} w={"100%"}>
             <Button 
            color={"black"}

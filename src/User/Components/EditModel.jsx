@@ -44,7 +44,7 @@ const [file,setFile]=useState("")
         toast({
             title: res.data.msg,
             position: 'top',
-            description: "You are see the changes.",
+            description: "You Can See The Changes.",
             status: 'success',
             duration: 2000,
             isClosable: true,
