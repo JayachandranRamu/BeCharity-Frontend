@@ -14,6 +14,7 @@ import UserProfile from "../Pages/UserProfile";
 import ResetPassword from "../Pages/ResetPassword";
 import ResetPasswordEmail from "../Pages/ResetPasswordEmail";
 import { VolunteerDonation } from "../Pages/VolunteerDonation";
+import { AdminPrivateRouter, VolunteerPrivateRouter } from "./PrivateRouter";
 
 const MainRoutes = () => {
   return (
@@ -21,7 +22,11 @@ const MainRoutes = () => {
 
 
        <Routes>
-           <Route path="/admin" element={<Adminpage />}></Route>
+           <Route path="/admin" element={
+        
+<Adminpage />
+        
+           }></Route>
             <Route path='/' element={<HomePage />} />
      
             <Route path='/thankyou' element={<ThankYou />} />
@@ -30,7 +35,12 @@ const MainRoutes = () => {
             <Route path='/about-us' element={<About />} />
             <Route path='/donate-us' element={<Donate />} />
             <Route path='/volunteers' element={<Voluntears />} />
-            <Route path='/volunteers/donation' element={<VolunteerDonation />} />
+            <Route path='/volunteers/donation' element={
+      
+              <VolunteerDonation/>
+     
+            } />
+            
             <Route path='/contact' element={<Contact />} />
             <Route path='/user-profile' element={<UserProfile />} />
             <Route path="/user-profile/reset-password/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjU0MzljNzNkODEwZjU2NmIyZTQwNGZjIiwidXNlcm5hbWUiOiJTaHViaGFtIiwiaWF0IjoxNjk4OTMyMjEzfQ.1QDUsrLJZDFuXT5IamFfvEa0LH7FY0q_XknJpEw0KkQ"

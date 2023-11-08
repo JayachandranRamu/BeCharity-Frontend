@@ -13,7 +13,9 @@ import {
 import BGImage from "../Assests/ngo2-sectionbg2.png";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
+import { useSelector } from "react-redux";
 const Contact = () => {
+ 
   return (
     <>
       <Box color={"black"}

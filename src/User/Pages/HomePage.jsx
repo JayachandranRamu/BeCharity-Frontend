@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../Components/Navbar";
 import { Box, Button, Flex, Heading, Link, Text } from "@chakra-ui/react";
 import BGImage from "../Assests/ngo2-slider-bg.png";
 import CategoryComponent from "../Components/CategoryComponent";
 import NumberChange from "../Components/NumberChange";
 import Footer from "../Components/Footer";
+import { useDispatch, useSelector } from "react-redux";
+import { SingleUserData } from "../Redux/Auth/action";
 const HomePage = () => {
+  const dispatch=useDispatch()
+  const data=useSelector((store)=>(store.AuthReducer))
+  useEffect(()=>{
+  if(data.isAuth){
+    dispatch(SingleUserData)
+  }
+  },[])
   return (
     <>
       <Box

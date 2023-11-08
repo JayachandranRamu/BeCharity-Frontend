@@ -5,6 +5,8 @@ let User_token=Cookies.get("User-token") || "";
 
 let initialState={
 isAuth:User_token?true:false,
+isAdmin:false,
+isVolunteers:false,
 loginMessage:"",
 logoutMessage:"Logged out Successfully.",
 isLoading:false,

@@ -120,7 +120,7 @@ onClose()
 
   }
 
-
+ 
 useEffect(()=>{
 if(data.isAuth){
   dispatch(SingleUserData)
